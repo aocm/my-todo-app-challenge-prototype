@@ -21,8 +21,7 @@ export default {
   props: {
     menuList: {
       type: Array,
-      default: null,
-      required: true
+      default: null
     }
   }
 }
