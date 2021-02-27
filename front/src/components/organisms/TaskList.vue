@@ -3,8 +3,13 @@
     <q-list bordered class="rounded-borders">
       <q-item-label header>Tasks</q-item-label>
       <template v-for="(taskItem, index) in taskList">
-        <q-separator :key="index" spaced />
-        <task-item :key="index" :title="taskItem.title" />
+        <q-separator :key="`${index}+separator`" spaced />
+        <task-item
+          :key="index"
+          :title="taskItem.title"
+          @delete-emit="deleteButton"
+          @detail-emit="detailButton"
+        />
       </template>
     </q-list>
     <q-footer bordered class="bg-white text-primary">
@@ -33,6 +38,22 @@ export default {
     taskList: {
       type: Array,
       default: null
+    }
+  },
+  data () {
+    return {
+      text: ''
+    }
+  },
+  methods: {
+    deleteButton (val) {
+      console.log(val)
+    },
+    detailButton (val) {
+      console.log(val)
+    },
+    inputEnter () {
+
     }
   }
 }

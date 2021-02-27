@@ -32,10 +32,6 @@ export default {
   name: 'TaskLayout',
   components: { TaskList, MenuList },
   props: {
-    title: {
-      type: String,
-      required: true
-    },
     menuList: {
       type: Array,
       default: null

@@ -12,8 +12,8 @@
 
     <q-item-section top side>
     <div class="text-grey-8 q-gutter-xs">
-      <q-btn class="gt-xs" size="12px" flat dense round icon="delete" />
-      <q-btn size="12px" flat dense round icon="more_vert" />
+      <q-btn class="gt-xs" size="12px" flat dense round icon="delete" @click="emitDeleteButton" />
+      <q-btn size="12px" flat dense round icon="more_vert" @click="emitDetailButton" />
     </div>
     </q-item-section>
   </q-item>
@@ -32,6 +32,14 @@ export default {
   data () {
     return {
       text: ''
+    }
+  },
+  methods: {
+    emitDeleteButton () {
+      this.$emit('delete-emit', this.title)
+    },
+    emitDetailButton () {
+      this.$emit('detail-emit', this.title)
     }
   }
 }
