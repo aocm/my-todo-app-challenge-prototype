@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import TaskItem from 'components/molecules/TaskItem.vue'
+import TaskItem from '../molecules/TaskItem.vue'
 
 export default {
   name: 'TaskList',
