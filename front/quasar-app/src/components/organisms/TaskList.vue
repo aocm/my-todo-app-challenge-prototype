@@ -4,10 +4,9 @@
     <template v-for="(taskItem, index) in taskList">
       <q-separator :key="`${index}+separator`" spaced />
       <task-item
+        v-on="$listeners"
         :key="index"
         :title="taskItem.title"
-        @delete-emit="deleteButton"
-        @detail-emit="detailButton"
       />
     </template>
   </q-list>
