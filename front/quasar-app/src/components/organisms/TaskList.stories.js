@@ -1,7 +1,7 @@
 
 import TaskList from './TaskList'
-import { action } from '@storybook/addon-actions'
-import * as TaskStories from '../molecules/TaskItem.stories';
+// import { action } from '@storybook/addon-actions'
+import * as TaskStories from '../molecules/TaskItem.stories'
 
 export default {
   title: 'TaskList',
