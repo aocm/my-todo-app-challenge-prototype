@@ -18,15 +18,16 @@
         <menu-list :menu-list="menuList" />
       </q-scroll-area>
     </q-drawer>
-
-    <task-list :task-list="taskList" />
+    <q-page-container>
+      <task-list :task-list="taskList" />
+    </q-page-container>
 
   </q-layout>
 </template>
 
 <script>
-import TaskList from 'components/organisms/TaskList.vue'
-import MenuList from 'components/organisms/MenuList.vue'
+import TaskList from '../components/organisms/TaskList.vue'
+import MenuList from '../components/organisms/MenuList.vue'
 
 export default {
   name: 'TaskLayout',
