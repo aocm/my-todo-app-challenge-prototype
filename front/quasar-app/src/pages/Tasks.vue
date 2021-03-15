@@ -1,12 +1,14 @@
 <template>
   <TasksLayout
     :menu-list="menuList"
-    :task-list="taskList"
+    :task-list="tasks.taskList"
   />
 </template>
 
 <script>
 import TasksLayout from 'layouts/TasksLayout.vue'
+import { mapState } from 'vuex'
+
 const menuList = [
   {
     icon: 'assignment_turned_in',
@@ -30,14 +32,6 @@ const menuList = [
   }
 ]
 
-const taskList = [
-  {
-    title: 'dummy1'
-  },
-  {
-    title: 'dummy2'
-  }
-]
 export default {
   name: 'Tasks',
   components: { TasksLayout },
@@ -45,9 +39,11 @@ export default {
     return {
       drawer: false,
       menuList,
-      taskList,
+      // taskList,
       text: ''
     }
-  }
+  },
+
+  computed: mapState(['tasks'])
 }
 </script>
