@@ -20,6 +20,19 @@
     </q-drawer>
     <q-page-container>
       <task-list :task-list="taskList" />
+      <q-footer bordered class="bg-white text-primary">
+        <q-list class="rounded-borders">
+          <q-item>
+            <q-item-section>
+              <q-input color="" v-model="text" label="add tasks">
+                <template v-slot:prepend>
+                  <q-icon name="add_tasks" />
+                </template>
+              </q-input>
+            </q-item-section>
+          </q-item>
+        </q-list>
+      </q-footer>
     </q-page-container>
 
   </q-layout>
@@ -44,7 +57,8 @@ export default {
   },
   data () {
     return {
-      drawer: false
+      drawer: false,
+      text: ''
     }
   }
 }
