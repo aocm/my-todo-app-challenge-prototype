@@ -1,0 +1,12 @@
+{
+    "name": "TodoApp Remote-Container",
+    "dockerComposeFile": [
+        "../docker-compose.yml"
+    ],
+    "service": "front",
+    "workspaceFolder": "/usr/src/app",
+    "extensions": [
+        "octref.vetur",
+        "eamodio.gitlens"
+    ]
+}
