@@ -125,10 +125,4 @@ dist
 #
 # Recommended template: Node.gitignore
 
-# TODO: where does this rule come from?
-docs/_book
-
-# TODO: where does this rule come from?
-test/
-
 # End of https://www.toptal.com/developers/gitignore/api/vue,node,java-web

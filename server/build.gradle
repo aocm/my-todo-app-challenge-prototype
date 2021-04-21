@@ -2,11 +2,28 @@ plugins {
 	id 'org.springframework.boot' version '2.4.5'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'groovy'
+
+	id "com.github.sherter.google-java-format" version "0.8"
+}
+
+ext {
+	domaVersion = "2.30.0"
+	spockVersion = "1.2-groovy-2.5"
+	lombokVersion = "1.18.2"
 }
 
 group = 'com.aocm'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = 11
+targetCompatibility = 11
+
+[compileJava, compileTestJava, compileGroovy, compileTestGroovy]*.options*.encoding = "UTF-8"
+[compileJava, compileTestJava, compileGroovy, compileTestGroovy]*.options*.compilerArgs = ["-Xlint:all"]
+
+
+// force code format
+compileJava.dependsOn tasks.googleJavaFormat
 
 configurations {
 	compileOnly {
@@ -16,15 +33,21 @@ configurations {
 
 repositories {
 	mavenCentral()
+
+	jcenter()
+	// spring
+	maven { url "https://repo.spring.io/release" }
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	compileOnly "org.projectlombok:lombok:${lombokVersion}"
+	annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+	testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+	testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+	testCompile "org.springframework.boot:spring-boot-starter-test"
+	testCompile "org.spockframework:spock-core:${spockVersion}"
+	testCompile "org.spockframework:spock-spring:${spockVersion}"
 }
 
-test {
-	useJUnitPlatform()
-}
