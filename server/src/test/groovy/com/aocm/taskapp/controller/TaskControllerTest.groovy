@@ -1,5 +1,7 @@
 package com.aocm.taskapp.controller
 
+import com.aocm.taskapp.domain.task.SampleRepository
+import org.spockframework.spring.SpringBean
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.web.servlet.MockMvc
@@ -18,11 +20,15 @@ class TaskControllerTest extends Specification {
     @Autowired
     WebApplicationContext wac
 
+    @SpringBean
+    SampleRepository sampleRepository = Mock()
+
     @Shared
     MockMvc mockMvc
 
     void setup() {
         mockMvc = webAppContextSetup(wac).build()
+        sampleRepository.getSampleAction() >> "test"
     }
 
     def basicPath = '/task'
