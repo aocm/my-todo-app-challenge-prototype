@@ -16,7 +16,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 class TaskControllerTest extends Specification {
 
-
     @Autowired
     WebApplicationContext wac
 
@@ -33,7 +32,7 @@ class TaskControllerTest extends Specification {
 
     def basicPath = '/task'
 
-    def "Sample"() {
+    def "Sampleメソッドのテスト"() {
 
         given: "とりあえずtestという文字列を返却してもらう"
 
@@ -44,8 +43,25 @@ class TaskControllerTest extends Specification {
         assert response == "test"
     }
 
+    def "最新のタスクを取得するテスト"() { // TODO リファクタ
+
+        given: "最新のタスクを取得する"
+
+        when:
+        def response = 最新のタスクを取得するメソッド()
+
+        then:
+        assert response == "{\"taskId\":\"todo\",\"title\":\"sample title\",\"description\":\"sample description\",\"status\":\"start\"}"
+    }
+
+
     def "サンプル"() {
         mockMvc.perform(get("${basicPath}/"))
+                .andExpect(status().isOk())
+                .andReturn().response.contentAsString
+    }
+    def "最新のタスクを取得するメソッド"() {
+        mockMvc.perform(get("${basicPath}/latest"))
                 .andExpect(status().isOk())
                 .andReturn().response.contentAsString
     }
