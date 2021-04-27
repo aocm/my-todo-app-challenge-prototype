@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class SampleRepositoryImpl implements SampleRepository {
   public String getSampleAction() {
+    System.out.println("impl");
     return "impl";
   }
 }

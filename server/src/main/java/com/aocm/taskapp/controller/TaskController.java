@@ -22,7 +22,7 @@ public class TaskController {
   @GetMapping("/latest")
   public TaskResponse findLatestTask() {
     val task = new TaskEntity("sample title", "sample description");
-
+    task.register();
     return new TaskResponse(task);
   }
 }
