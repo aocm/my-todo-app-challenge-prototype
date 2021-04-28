@@ -1,9 +1,9 @@
 package com.aocm.taskapp.domain.task;
 
+import com.aocm.taskapp.ApplicationContextUtils;
 import lombok.Getter;
-import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.ApplicationContext;
 
 @Getter
 public class TaskEntity {
@@ -13,10 +13,8 @@ public class TaskEntity {
     this.title = title;
     this.description = description;
     this.status = "start";
-    val ctx = new AnnotationConfigApplicationContext();
-    ctx.scan("com.aocm.taskapp");
-    ctx.refresh();
-    this.repository = ctx.getBean(SampleRepository.class);
+    ApplicationContext context = ApplicationContextUtils.getContext();
+    this.repository = context.getBean(SampleRepository.class);
   }
 
   @Autowired SampleRepository repository;

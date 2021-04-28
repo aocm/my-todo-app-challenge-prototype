@@ -1,9 +1,12 @@
 package com.aocm.taskapp.controller
 
+import com.aocm.taskapp.Application
+import com.aocm.taskapp.ApplicationContextUtils
 import com.aocm.taskapp.domain.task.SampleRepository
 import org.junit.Test
 import org.spockframework.spring.SpringBean
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.SpringApplication
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.ContextConfiguration
@@ -28,6 +31,7 @@ class TaskControllerTest extends Specification {
 
     void setup() {
         mockMvc = webAppContextSetup(wac).build()
+        ApplicationContextUtils.setContext(wac);
         System.out.println("setup");
     }
 
