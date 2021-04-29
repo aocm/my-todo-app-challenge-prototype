@@ -10,9 +10,9 @@ public class TaskResponse {
 
   TaskResponse(TaskEntity task) {
     this.taskId = task.getTaskId();
-    this.title = task.getTitle();
+    this.title = task.getTitle().getValue();
     this.description = task.getDescription();
-    this.status = task.getStatus();
+    this.status = task.getStatus().getValue();
   }
 
   private String taskId;

@@ -22,7 +22,8 @@ public class TaskController {
   @GetMapping("/latest")
   public TaskResponse findLatestTask() {
     val task = new TaskEntity("sample title", "sample description");
-    task.register();
+    task.register(); // test
+    task.done(); // test
     return new TaskResponse(task);
   }
 }
