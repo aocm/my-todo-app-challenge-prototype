@@ -12,7 +12,7 @@ public class TaskResponse {
     this.taskId = task.getTaskId();
     this.title = task.getTitle().getValue();
     this.description = task.getDescription();
-    this.status = task.getStatus().getValue();
+    this.status = task.getStatus().toString();
   }
 
   private String taskId;

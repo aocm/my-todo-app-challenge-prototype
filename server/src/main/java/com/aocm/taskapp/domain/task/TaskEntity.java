@@ -10,7 +10,7 @@ public class TaskEntity {
     this.taskId = "todo"; // TODO
     this.title = new TaskTitle(title);
     this.description = description;
-    this.status = new TaskStatus();
+    this.status = TaskStatus.UNDONE;
     ApplicationContext context = ApplicationContextUtils.getContext();
     this.repository = context.getBean(SampleRepository.class);
   }
@@ -29,7 +29,6 @@ public class TaskEntity {
 
   public void done() {
     // todo リポジトリ 修正
-    this.status.nextStatus();
     this.repository.getSampleAction();
   }
 }
