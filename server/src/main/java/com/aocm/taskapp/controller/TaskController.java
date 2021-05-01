@@ -1,7 +1,6 @@
 package com.aocm.taskapp.controller;
 
-import com.aocm.taskapp.domain.task.TaskEntity;
-import com.aocm.taskapp.usecase.SampleService;
+import com.aocm.taskapp.usecase.TaskUseCase;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,18 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/task")
 public class TaskController {
 
-  @Autowired SampleService sampleService;
-
-  @GetMapping
-  public String sample() {
-    return sampleService.getText();
-  }
+  @Autowired TaskUseCase taskUseCase;
 
   @GetMapping("/latest")
   public TaskResponse findLatestTask() {
-    val task = new TaskEntity("sample title", "sample description");
-    task.register(); // test
-    task.done(); // test
+    val task = taskUseCase.findLatestTask();
     return new TaskResponse(task);
   }
 }

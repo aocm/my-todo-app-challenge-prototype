@@ -1,6 +1,7 @@
 package com.aocm.taskapp.controller;
 
-import com.aocm.taskapp.domain.task.SampleRepository;
+import com.aocm.taskapp.domain.task.TaskEntity;
+import com.aocm.taskapp.domain.task.TaskRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -12,11 +13,16 @@ public class TestConfig {
 
   @Primary
   @Bean
-  SampleRepository getSampleRepository() {
-    return new SampleRepository() {
+  TaskRepository getTaskRepository() {
+    return new TaskRepository() {
       @Override
-      public String getSampleAction() {
-        return "test!";
+      public void resistor(TaskEntity task) {
+        System.out.println("test resistor");
+      }
+
+      @Override
+      public void done(TaskEntity task) {
+        System.out.println("test resistor");
       }
     };
   }

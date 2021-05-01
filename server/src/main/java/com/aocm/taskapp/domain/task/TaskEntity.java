@@ -4,7 +4,6 @@ import com.aocm.taskapp.ApplicationContextUtils;
 import lombok.Getter;
 import org.springframework.context.ApplicationContext;
 
-@Getter
 public class TaskEntity {
   public TaskEntity(String title, String description) {
     this.taskId = "todo"; // TODO
@@ -12,23 +11,21 @@ public class TaskEntity {
     this.description = description;
     this.status = TaskStatus.UNDONE;
     ApplicationContext context = ApplicationContextUtils.getContext();
-    this.repository = context.getBean(SampleRepository.class);
+    this.repository = context.getBean(TaskRepository.class);
   }
 
-  SampleRepository repository;
+  TaskRepository repository;
 
-  private String taskId;
-  private TaskTitle title;
-  private String description;
-  private TaskStatus status; // "start" or "done"
+  @Getter private String taskId;
+  @Getter private TaskTitle title;
+  @Getter private String description;
+  @Getter private TaskStatus status; // "start" or "done"
 
   public void register() {
-    // todo リポジトリ 修正
-    this.repository.getSampleAction();
+    this.repository.resistor(this);
   }
 
   public void done() {
-    // todo リポジトリ 修正
-    this.repository.getSampleAction();
+    this.repository.done(this);
   }
 }
