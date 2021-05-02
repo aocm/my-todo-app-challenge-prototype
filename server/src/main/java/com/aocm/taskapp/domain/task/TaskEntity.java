@@ -11,10 +11,10 @@ public class TaskEntity {
     this.description = description;
     this.status = TaskStatus.UNDONE;
     ApplicationContext context = ApplicationContextUtils.getContext();
-    this.repository = context.getBean(TaskRepository.class);
+    this.repository = context.getBean(TaskCommandRepository.class);
   }
 
-  TaskRepository repository;
+  TaskCommandRepository repository;
 
   @Getter private String taskId;
   @Getter private TaskTitle title;

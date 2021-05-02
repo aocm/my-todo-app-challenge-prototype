@@ -1,11 +1,11 @@
-package com.aocm.taskapp.infrastructure;
+package com.aocm.taskapp.infrastructure.repository;
 
+import com.aocm.taskapp.domain.task.TaskCommandRepository;
 import com.aocm.taskapp.domain.task.TaskEntity;
-import com.aocm.taskapp.domain.task.TaskRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class TaskRepositoryImpl implements TaskRepository {
+public class TaskCommandRepositoryImpl implements TaskCommandRepository {
   public void resistor(TaskEntity task) {
     System.out.println("resistor");
   }
