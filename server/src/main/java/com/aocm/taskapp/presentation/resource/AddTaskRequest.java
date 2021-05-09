@@ -1,4 +1,4 @@
-package com.aocm.taskapp.controller;
+package com.aocm.taskapp.presentation.resource;
 
 import lombok.Getter;
 import lombok.Setter;

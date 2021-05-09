@@ -1,5 +1,8 @@
-package com.aocm.taskapp.controller;
+package com.aocm.taskapp.presentation.controller;
 
+import com.aocm.taskapp.presentation.resource.AddTaskRequest;
+import com.aocm.taskapp.presentation.resource.PutTaskRequest;
+import com.aocm.taskapp.presentation.resource.TaskResponse;
 import com.aocm.taskapp.usecase.TaskUseCase;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;

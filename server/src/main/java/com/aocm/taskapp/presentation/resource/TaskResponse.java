@@ -1,4 +1,4 @@
-package com.aocm.taskapp.controller;
+package com.aocm.taskapp.presentation.resource;
 
 import com.aocm.taskapp.domain.task.TaskEntity;
 import lombok.Getter;
@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 public class TaskResponse {
 
-  TaskResponse(TaskEntity task) {
+  public TaskResponse(TaskEntity task) {
     this.taskId = task.getTaskId();
     this.title = task.getTitle().getValue();
     this.description = task.getDescription();
